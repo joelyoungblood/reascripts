@@ -1,0 +1,10 @@
+{
+    "Lua.diagnostics.globals": [
+        "reaper",
+        "GetChunkVal",
+        "ultraschall"
+    ],
+    "Lua.diagnostics.disable": [
+        "need-check-nil"
+    ]
+}
