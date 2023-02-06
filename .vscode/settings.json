@@ -2,7 +2,8 @@
     "Lua.diagnostics.globals": [
         "reaper",
         "GetChunkVal",
-        "ultraschall"
+        "ultraschall",
+        "gfx"
     ],
     "Lua.diagnostics.disable": [
         "need-check-nil"

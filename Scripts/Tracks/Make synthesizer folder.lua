@@ -1,4 +1,4 @@
-dofile(reaper.GetResourcePath() .. '/Scripts/thesublibrarian/src/utility/Helpers.lua')
+dofile(reaper.GetResourcePath() .. '/Scripts/thesublibrarian/Scripts/Utility/Helpers.lua')
 
 local preferredNewTrackMixerSettingsString = '1 0.313299 0 1 0.5 0 -1 0'
 

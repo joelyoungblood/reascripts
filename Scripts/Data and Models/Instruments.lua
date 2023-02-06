@@ -1,0 +1,176 @@
+local Instruments = {}
+
+-- []={name='', command='_S&M_ADD_TRTEMPLATE' .. ''}, {name='Sequencers\n', icon='seq', color='#9CDFC5', command='_RSb09fd997839997949be77a1996bf37c74ac76e73'},
+
+Instruments.synthCategories = {
+    [1]={name='Favorites\n', icon='fav', color='#B286E6', command='_RS8c4592fbe64fd75e0db53323377602cde2cae889'},
+    [2]={name='Unique\n', icon='unique', color='#E0A6CA', command='_RS983435fc45f63c07f4e00d6e00f7ab820e2105d5'},
+    [3]={name='Modular\n', icon='modular', color='#93E0E2', command='_RS45ca7df17fdb6be9daf4e5f1c0b8d9bc6c4c4167'},
+    [4]={name='FM PM PD\nModelling', icon='fm', color='#F94144', command='_RS6d89c1f57ac66917b5e3e193f2c8f28af435a22b'},
+    [5]={name='Modern\n', icon='modern', color='#6BACEC', command='_RS3fe5320ba1b6c6f3d92c0937da243455e28215ca'},
+    [6]={name='Keys\n', icon='keys', color='#EDCC6C', command='_RS7afab9ea48f6247b041bad659a64922059872fdc'},
+    [7]={name='Samplers\n', icon='samplers', color='#FFB383', command='_RS9eacb946665476ece2756ebd5726b0f45630af0c'},
+    [8]={name='Sequencers\n', icon='seq', color='#9CDFC5', command='_RSb09fd997839997949be77a1996bf37c74ac76e73'},
+    [9]={name='Vintage\n', icon='vintage', color='#F4794A', command='_RSa6f6c982b9d1e89dacbf61cef2cf53b5d9191ec7'},
+}
+
+Instruments.favorites = {
+    [1]={name='Aalto', command='_S&M_ADD_TRTEMPLATE' .. '66'},
+    [2]={name='Blue3', command='_S&M_ADD_TRTEMPLATE' .. '45'},
+    [3]={name='Diva', command='_S&M_ADD_TRTEMPLATE' .. '32'},
+    [4]={name='Dreamsynth', command='_S&M_ADD_TRTEMPLATE' .. '32'},
+    [5]={name="F'EM", command='_S&M_ADD_TRTEMPLATE' .. '107'},
+    [6]={name='Generate', command='_S&M_ADD_TRTEMPLATE' .. '79'},
+    [7]={name='HY-POLY', command='_S&M_ADD_TRTEMPLATE' .. '50'},
+    [8]={name='Icarus', command='_S&M_ADD_TRTEMPLATE' .. '86'},
+    [9]={name='JV-1080\n', command='_S&M_ADD_TRTEMPLATE' .. '202'},
+    [10]={name='Kaivo', command='_S&M_ADD_TRTEMPLATE' .. '112'},
+    [11]={name='Predator3', command='_S&M_ADD_TRTEMPLATE' .. '53'},
+    [12]={name='Sines', command='_S&M_ADD_TRTEMPLATE' .. '56'},
+    [13]={name='Spire 1.5', command='_S&M_ADD_TRTEMPLATE' .. '57'},
+    [14]={name='TAL Sampler', command='_S&M_ADD_TRTEMPLATE' .. '42'},
+    [15]={name='VCV Rack', command='_S&M_ADD_TRTEMPLATE' .. '72'},
+    [16]={name='Zebra', command='_S&M_ADD_TRTEMPLATE' .. '65'},
+}
+
+Instruments.keys = {
+    [1]={name='B3 V2', command='_S&M_ADD_TRTEMPLATE' .. '156'},
+    [2]={name='Cymatic Keys', command='_S&M_ADD_TRTEMPLATE' .. '157'},
+    [3]={name='Pianoteq 8', command='_S&M_ADD_TRTEMPLATE' .. '85'},
+    [4]={name='Ravenscroft', command='_S&M_ADD_TRTEMPLATE' .. '159'},
+    [5]={name='Stage-73 V2', command='_S&M_ADD_TRTEMPLATE' .. '160'},
+    [6]={name='Tapex2', command='_S&M_ADD_TRTEMPLATE' .. '161'},
+}
+
+Instruments.fm = {
+    [1]={name='Bazille', command='_S&M_ADD_TRTEMPLATE' .. '44'},
+    [2]={name='Blue3', command='_S&M_ADD_TRTEMPLATE' .. '45'},
+    [3]={name='CZ V', command='_S&M_ADD_TRTEMPLATE' .. '109'},
+    [4]={name='DX7 V', command='_S&M_ADD_TRTEMPLATE' .. '152'},
+    [5]={name="F'em", command="_S&M_ADD_TRTEMPLATE" .. "107"},
+    [6]={name='Imagine', command='_S&M_ADD_TRTEMPLATE' .. '111'},
+    [7]={name='Kaivo', command='_S&M_ADD_TRTEMPLATE' .. '112'},
+    [8]={name='chipsynth MD', command='_S&M_ADD_TRTEMPLATE' .. '162'},
+    [9]={name='Nemesis', command='_S&M_ADD_TRTEMPLATE' .. '147'},
+    [10]={name='OPS7', command='_S&M_ADD_TRTEMPLATE' .. '108'},
+    [11]={name='Opsix', command='_S&M_ADD_TRTEMPLATE' .. '110'},
+    [12]={name='Sines', command='_S&M_ADD_TRTEMPLATE' .. '56'},
+    [13]={name='Triple Cheese', command='_S&M_ADD_TRTEMPLATE' .. '113'},
+}
+
+Instruments.vintage = {
+    [1]={name='Buchla Easal V', command='_S&M_ADD_TRTEMPLATE' .. '180'},
+    [2]={name='CMI V', command='_S&M_ADD_TRTEMPLATE' .. '165'},
+    [3]={name='CS-80 V4', command='_S&M_ADD_TRTEMPLATE' .. '114'},
+    [4]={name='Diva', command='_S&M_ADD_TRTEMPLATE' .. '31'},
+    [5]={name='Eight Voice', command='_S&M_ADD_TRTEMPLATE' .. '122'},
+    [6]={name='Elka-X', command='_S&M_ADD_TRTEMPLATE' .. '166'},
+    [7]={name='Emulator IIV', command='_S&M_ADD_TRTEMPLATE' .. '163'},
+    [8]={name='Fury800', command='_S&M_ADD_TRTEMPLATE' .. '168'},
+    [9]={name='FB-7999', command='_S&M_ADD_TRTEMPLATE' .. '167'},
+    [10]={name='GX-80', command='_S&M_ADD_TRTEMPLATE' .. '33'},
+    [11]={name='Jup-8 V4', command='_S&M_ADD_TRTEMPLATE' .. '118'},
+    [12]={name='Jun-6V', command='_S&M_ADD_TRTEMPLATE' .. '124'},
+    [13]={name='M-tron', command='_S&M_ADD_TRTEMPLATE' .. '116'},
+    [14]={name='M-tron mkii', command='_S&M_ADD_TRTEMPLATE' .. '41'},
+    [15]={name='Memorymode', command='_S&M_ADD_TRTEMPLATE' .. '169'},
+    [16]={name='Mercury-4', command='_S&M_ADD_TRTEMPLATE' .. '170'},
+    [17]={name='Model 72', command='_S&M_ADD_TRTEMPLATE' .. '123'},
+    [18]={name='Model 82', command='_S&M_ADD_TRTEMPLATE' .. '121'},
+    [19]={name='Model 84', command='_S&M_ADD_TRTEMPLATE' .. '39'},
+    [20]={name='MS-20V', command='_S&M_ADD_TRTEMPLATE' .. '153'},
+    [21]={name='OB-E', command='_S&M_ADD_TRTEMPLATE' .. '34'},
+    [22]={name='OB-XD', command='_S&M_ADD_TRTEMPLATE' .. '115'},
+    [23]={name='Obsession', command='_S&M_ADD_TRTEMPLATE' .. '35'},
+    [24]={name='OB-Xa V', command='_S&M_ADD_TRTEMPLATE' .. '117'},
+    [25]={name='Oddity3', command='_S&M_ADD_TRTEMPLATE' .. '36'},
+    [26]={name='PS-20', command='_S&M_ADD_TRTEMPLATE' .. '172'},
+    [27]={name='Quadra', command='_S&M_ADD_TRTEMPLATE' .. '127'},
+    [28]={name='Repro-5', command='_S&M_ADD_TRTEMPLATE' .. '38'},
+    [29]={name='chipsynth SFC', command='_S&M_ADD_TRTEMPLATE' .. '164'},
+    [30]={name='Surrealistic MG-1', command='_S&M_ADD_TRTEMPLATE' .. '174'},
+    [31]={name='Saurus', command='_S&M_ADD_TRTEMPLATE' .. '125'},
+    [32]={name='TAL J-8', command='_S&M_ADD_TRTEMPLATE' .. '40'},
+    [33]={name='TAL Sampler', command='_S&M_ADD_TRTEMPLATE' .. '42'},
+    [34]={name='TAL BassLine 101', command='_S&M_ADD_TRTEMPLATE' .. '119'},
+    [35]={name='TAL-UNO-LX-V2', command='_S&M_ADD_TRTEMPLATE' .. '120'},
+}
+
+Instruments.modern = {
+    [1]={name='Aalto', command='_S&M_ADD_TRTEMPLATE' .. '66'},
+    [2]={name='Ace', command='_S&M_ADD_TRTEMPLATE' .. '149'},
+    [3]={name='Avenger', command='_S&M_ADD_TRTEMPLATE' .. '87'},
+    [4]={name='Cursus Vereor', command='_S&M_ADD_TRTEMPLATE' .. '46'},
+    [5]={name='Discovery Pro', command='_S&M_ADD_TRTEMPLATE' .. '198'},
+    [6]={name='Dune3', command='_S&M_ADD_TRTEMPLATE' .. '47'},
+    [7]={name='Granulizer2', command='_S&M_ADD_TRTEMPLATE' .. '150'},
+    [8]={name='Hive', command='_S&M_ADD_TRTEMPLATE' .. '48'},
+    [9]={name='HY-POLY', command='_S&M_ADD_TRTEMPLATE' .. '49'},
+    [10]={name='Icarus', command='_S&M_ADD_TRTEMPLATE' .. '86'},
+    [11]={name='Loquelic Vereor', command='_S&M_ADD_TRTEMPLATE' .. '51'},
+    [12]={name='Manis Iteritas', command='_S&M_ADD_TRTEMPLATE' .. '52'},
+    [13]={name='Pigments', command='_S&M_ADD_TRTEMPLATE' .. '126'},
+    [14]={name='Predator3', command='_S&M_ADD_TRTEMPLATE' .. '53'},
+    [15]={name='Quanta2', command='_S&M_ADD_TRTEMPLATE' .. '127'},
+    [16]={name='Rapid', command='_S&M_ADD_TRTEMPLATE' .. '54'},
+    [17]={name='Serum', command='_S&M_ADD_TRTEMPLATE' .. '128'},
+    [18]={name='Sinc Vereor', command='_S&M_ADD_TRTEMPLATE' .. '55'},
+    [19]={name='Spire 1.5', command='_S&M_ADD_TRTEMPLATE' .. '57'},
+    [20]={name='Sylenth1', command='_S&M_ADD_TRTEMPLATE' .. '148'},
+    [21]={name='Synthmaster2', command='_S&M_ADD_TRTEMPLATE' .. '59'},
+    [22]={name='UVI Falcon', command='_S&M_ADD_TRTEMPLATE' .. '60'},
+    [23]={name='Virt Vereor', command='_S&M_ADD_TRTEMPLATE' .. '61'},
+    [24]={name='Vital', command='_S&M_ADD_TRTEMPLATE' .. '62'},
+    [25]={name='Warlock', command='_S&M_ADD_TRTEMPLATE' .. '63'},
+    [26]={name='Waverazor', command='_S&M_ADD_TRTEMPLATE' .. '64'},
+    [27]={name='Zebra2', command='_S&M_ADD_TRTEMPLATE' .. '65'},
+}
+
+Instruments.modular = {
+    [1]={name='Hyperion\n', command='_S&M_ADD_TRTEMPLATE' .. '50'},
+    [2]={name='MSound\nFactory', command='_S&M_ADD_TRTEMPLATE' .. '67'},
+    [3]={name='Phase Plant\n', command='_S&M_ADD_TRTEMPLATE' .. '69'},
+    [4]={name='Reaktor\n', command='_S&M_ADD_TRTEMPLATE' .. '74'},
+    [5]={name='Softube\nModular', command='_S&M_ADD_TRTEMPLATE' .. '70'},
+    [6]={name='TAL Mod\n', command='_S&M_ADD_TRTEMPLATE' .. '71'},
+    [7]={name='VCV Rack\n', command='_S&M_ADD_TRTEMPLATE' .. '72'},
+    [8]={name='Voltage\nModular', command='_S&M_ADD_TRTEMPLATE' .. '73'},
+}
+
+Instruments.unique = {
+    [1]={name='Abyss', command='_S&M_ADD_TRTEMPLATE' .. '75'},
+    [2]={name='Bioscape', command='_S&M_ADD_TRTEMPLATE' .. '178'},
+    [3]={name='Blade2', command='_S&M_ADD_TRTEMPLATE' .. '77'},
+    [4]={name='Dust', command='_S&M_ADD_TRTEMPLATE' .. '78'},
+    [5]={name='Generate', command='_S&M_ADD_TRTEMPLATE' .. '79'},
+    [6]={name='Kult', command='_S&M_ADD_TRTEMPLATE' .. '84'},
+    [7]={name='Novum', command='_S&M_ADD_TRTEMPLATE' .. '80'},
+    [8]={name='Rayblaster', command='_S&M_ADD_TRTEMPLATE' .. '81'},
+    [9]={name='Shapiro2', command='_S&M_ADD_TRTEMPLATE' .. '177'},
+    [10]={name='Spacecraft', command='_S&M_ADD_TRTEMPLATE' .. '82'},
+    [11]={name='Synplant', command='_S&M_ADD_TRTEMPLATE' .. '83'},
+    [12]={name='UVI Drone', command='_S&M_ADD_TRTEMPLATE' .. '179'},
+}
+
+Instruments.sequencers = {
+    [1]={name='Acolyte\n', command='_S&M_ADD_TRTEMPLATE' .. '99'},
+    [2]={name='Axon2\n', command='_S&M_ADD_TRTEMPLATE' .. '100'},
+    [3]={name='HY-RPE2\n', command='_S&M_ADD_TRTEMPLATE' .. '101'},
+    [4]={name='HY-Seq\nCollection2', command='_S&M_ADD_TRTEMPLATE' .. '102'},
+    [5]={name='Nest\n', command='_S&M_ADD_TRTEMPLATE' .. '103'},
+    [6]={name='Obscurium\n', command='_S&M_ADD_TRTEMPLATE' .. '104'},
+    [7]={name='Stochas\n', command='_S&M_ADD_TRTEMPLATE' .. '105'},
+    [8]={name='Tactic\n', command='_S&M_ADD_TRTEMPLATE' .. '106'},
+}
+
+Instruments.samplers = {
+    [1]={name='Horizen\n', command='_S&M_ADD_TRTEMPLATE' .. '130'},
+    [2]={name='JV-1080\n', command='_S&M_ADD_TRTEMPLATE' .. '202'},
+    [3]={name='Kontakt\n', command='_S&M_ADD_TRTEMPLATE' .. '199'},
+    [4]={name='Labs\n', command='_S&M_ADD_TRTEMPLATE' .. '200'},
+    [5]={name='chipsynth SFC\n', command='_S&M_ADD_TRTEMPLATE' .. '164'},
+    [6]={name='TAL Sampler\n', command='_S&M_ADD_TRTEMPLATE' .. '42'},
+    [7]={name='UVI\nWorkstation', command='_S&M_ADD_TRTEMPLATE' .. '201'},
+}
+
+return Instruments

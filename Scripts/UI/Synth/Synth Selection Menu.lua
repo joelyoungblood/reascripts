@@ -1,11 +1,13 @@
--- Set search RTK path
+-- 
+-- Menu for synth category selection
+--
+
 package.path = reaper.GetResourcePath() .. '/Scripts/rtk/1/?.lua'
 local rtk = require('rtk')
-
-package.path = reaper.GetResourcePath() .. '/Scripts/thesublibrarian/src/data/?.lua'
-local Synths = require('Instruments')
-package.path = reaper.GetResourcePath() .. '/Scripts/thesublibrarian/src/menus/?.lua'
+package.path = reaper.GetResourcePath() .. '/Scripts/thesublibrarian/Scripts/UI/?.lua'
 local Menu = require('Menu')
+package.path = reaper.GetResourcePath() .. '/Scripts/thesublibrarian/Scripts/Data and Models/?.lua'
+local Synths = require('Instruments')
 
 if rtk.os.mac then
     rtk.set_theme_overrides{
@@ -13,12 +15,13 @@ if rtk.os.mac then
     }
 end
 
-local window = rtk.Window{borderless=true, bg='#232323', h=252, w=387, x=434, y=1036}
+local window = rtk.Window{borderless=true, bg='#232323', h=475, w=290, x=433, y=785}
 
 local function main()
     local app = window:add(rtk.Application())
     app.statusbar:hide()
-    app:add_screen(Menu.CreateSynthCategoryMenu(Synths.synthCategories, window), 'synthcat')
+    local nativeCloseActionId = reaper.NamedCommandLookup('_RSa441548662975401c2e841fd2cd09d98b57bcd59')
+    app:add_screen(Menu.CreateCategoryMenu(Synths.synthCategories, window, nativeCloseActionId), 'synthcat')
     window:open()
 end
 

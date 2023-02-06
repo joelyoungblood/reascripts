@@ -1,9 +1,7 @@
 -- TODO: add toggle states / update conditionals / add error handling
 local EmbedStateInMCP = 2
 dofile(reaper.GetResourcePath()..'/UserPlugins/ultraschall_api.lua')
-dofile(reaper.GetResourcePath() .. '/Scripts/thesublibrarian/src/utility/Helpers.lua')
--- src/utility/Helpers.lua
--- eventually check for template type, e.g. guitar, synth, whatever. maybe use layout key?
+dofile(reaper.GetResourcePath() .. '/Scripts/thesublibrarian/Scripts/Various/Helpers.lua')
 
 local collapsedMixHeight = '1 0.252266 0.413043 1 0.5 0 0 0'
 local expandedMixHeight = '1 0.433504 0.144543 1 0.5 0 0 0'

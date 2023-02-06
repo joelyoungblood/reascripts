@@ -1,49 +1,20 @@
--- identifier reaper.JS_Window_FindChild(identifier parentHWND, string title, boolean exact)
-local hwndID = reaper.JS_Window_FindChild(reaper.GetMainHwnd(), 'HeDa ', false)
-reaper.DockWindowRemove(hwndID)
+local context = reaper.ImGui_CreateContext('ReaImGui Demo', reaper.ImGui_ConfigFlags_None())
+local mainViewport = reaper.ImGui_GetMainViewport(context)
+local workPosition = {reaper.ImGui_Viewport_GetWorkPos(mainViewport)}
+reaper.ImGui_SetNextWindowPos(context, workPosition[1] + 20, workPosition[2] + 20, reaper.ImGui_Cond_FirstUseEver())
+reaper.ImGui_SetNextWindowSize(context, 550, 680, reaper.ImGui_Cond_FirstUseEver())
+local shouldBeOpen = true
 
---====================================================================== 
---[[ 
-* ReaScript Name: kawa_MAIN_ScreenSet_Toggle_1_2. 
-* Version: 2017/01/16 
-* Author: kawa_ 
-* Author URI: http://forum.cockos.com/member.php?u=105939 
-* Repository: BitBucket - kawaCat - ReaScript-M2B 
-* Repository URI: https://bitbucket.org/kawaCat/reascript-m2bpack/ 
---]] 
---====================================================================== 
-local section = "window_sets"
-local key = "last_window_set"
-
-local firstScreensetActionId = 40454
-local secondScreensetActionId = 40455
-local addInfoPaneAction = reaper.NamedCommandLookup('_RSc18de16721a3c34e4867889bd9bf02450163b2f8')
-
-function ToggleScreenSetAB()
-    local firstScreenset = 0
-    local secondScreenset = 1
-    local extStorageState = reaper.GetExtState(section, key)
-    if extStorageState == '' or extStorageState == nil then
-        extStorageState = secondScreensetActionId
+function Main()
+    if shouldBeOpen == true then
+        if reaper.ImGui_Begin(context, 'Test', shouldBeOpen) then
+            reaper.ImGui_End(context)
+        end
     else
-        extStorageState = tonumber(extStorageState) or secondScreensetActionId
+        reaper.defer(Main)
     end
 
-    local actionId
-
-    if extStorageState ~= firstScreensetActionId + firstScreenset then
-        -- go to sreenset 1
-        -- show info pane if not showing
-        -- check if a track is selected, if not, select master
-        actionId = firstScreensetActionId + firstScreenset
-    else
-        -- go to screnset 2 (hide info pane if showing)
-        -- I_HEIGHTOVERRIDE
-        -- boolean reaper.SetMediaTrackInfo_Value(MediaTrack tr, string parmname, number newvalue)
-        actionId = firstScreensetActionId + secondScreenset
-    end
-    reaper.Main_OnCommand(actionId, 0)
-    reaper.SetExtState(section, key, tostring(actionId), false)
+    reaper.defer(Main)
 end
 
-ToggleScreenSetAB()
+reaper.defer(Main)

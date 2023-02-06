@@ -1,6 +1,4 @@
-dofile(reaper.GetResourcePath() .. '/Scripts/thesublibrarian/src/utility/Helpers.lua')
-
-local defaultNewTrackMixerSettingsString = 'SHOWINMIX 1 0.6667 0.5 1 0.5 -1 -1 -1'
+dofile(reaper.GetResourcePath() .. '/Scripts/thesublibrarian/Scripts/Various/Helpers.lua')
 local preferredNewTrackMixerSettingsString = '1 0.313299 0 1 0.5 0 -1 0'
 
 local firstSelected = reaper.GetSelectedTrack(0, 0)

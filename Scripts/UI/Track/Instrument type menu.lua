@@ -1,5 +1,5 @@
 -- 
--- Menu for vintage synth selection
+-- Menu for selecting the instrument type
 --
 
 package.path = reaper.GetResourcePath() .. '/Scripts/rtk/1/?.lua'
